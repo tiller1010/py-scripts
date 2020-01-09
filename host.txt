@@ -38,6 +38,7 @@
 127.0.0.1       morriscoupling.localhost
 127.0.0.1       sbre.localhost
 127.0.0.1       great-lakes-lms.localhost
+127.0.0.1       unitedway.localhost
+127.0.0.1       john-russell.localhost
 
 192.168.10.10   heil.localhost
-
