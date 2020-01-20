@@ -21,7 +21,6 @@ if len(sys.argv) == 3:
 	hostsBackup.write(hostsText)
 	hostsBackup.close()
 
-	# hosts.write('127.0.0.1\t{0}.localhost'.format(projectName))
 	if projectType == 'l' or projectType == 'laravel':
 		print('Laravel project added to hosts file')
 		hostsText = insertAfter(hostsText, r'192.168.10.10\s+[\w-]+.localhost', '\n192.168.10.10\t{0}.localhost'.format(projectName))
