@@ -14,11 +14,11 @@
   - VHOST_PATH: Absolute path to your vhost file (e.g. "C:/xampp/apache/conf/extra/httpd-vhosts.conf")
   - PYSCRIPTS_PATH: Absolute path to this directory
   
-  ### Usage
-  #### Run all for SilverStripe project
-  - To generate all configurations, run `genall.sh project-name` in your project directory
-  #### Individual configs
-  - To generate hosts line, run `hosts.py s project-name` for SilverStripe project, run `hosts.py l project-name` for Laravel project
-    - Run `hosts.sh` to edit hosts file directly
-  - To generate vhost block, run `vhost.py project-name`
-  - To generate .env, run `env.py project-name` in project directory
+### Usage
+#### Run all for SilverStripe project
+- To generate all configurations, run `genall.sh project-name` in your project directory
+#### Individual configs
+- To generate hosts line, run `hosts.py s project-name` for SilverStripe project, run `hosts.py l project-name` for Laravel project
+  - Run `hosts.sh` to edit hosts file directly
+- To generate vhost block, run `vhost.py project-name`
+- To generate .env, run `env.py project-name` in project directory
