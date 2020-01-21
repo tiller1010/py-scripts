@@ -2,6 +2,13 @@
 
 import sys
 import re
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+hostsPath = os.getenv("HOSTS_PATH")
+pyscriptsPath = os.getenv("PYSCRIPTS_PATH")
 
 def insertAfter(filetext, regex, newText):
   """ Inserts 'newText' into 'filetext' right after 'regex'. """
@@ -13,9 +20,8 @@ if len(sys.argv) == 3:
 	projectType = sys.argv[1];
 	projectName = sys.argv[2];
 
-	# Update this file path if necessary
-	hosts = open('C:/Windows/System32/drivers/etc/hosts', 'r+')
-	hostsBackup = open('C:/Users/Tyler/PyScripts/hosts.txt', 'w')
+	hosts = open(hostsPath, 'r+')
+	hostsBackup = open(pyscriptsPath+'/hosts.txt', 'w+')
 
 	hostsText = hosts.read()
 	hostsBackup.write(hostsText)

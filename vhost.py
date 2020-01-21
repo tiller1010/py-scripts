@@ -1,22 +1,27 @@
 #!/usr/bin/env python
 
 import sys
+from dotenv import load_dotenv
+import os
 
-# Update this file path if necessary
-vhost = open('C:/xampp/apache/conf/extra/httpd-vhosts.conf', 'a')
+load_dotenv()
+
+vhostPath = os.getenv("VHOST_PATH")
+email = os.getenv("EMAIL")
+
+vhost = open(vhostPath, 'a')
 
 projectName = sys.argv[1];
 
-# Change to your email
 vhost.write('\n\
 <VirtualHost *:80>\n\
-\tServerAdmin tyler@werkbot.com\n\
+\tServerAdmin {1}\n\
 \tDocumentRoot "C:/xampp/htdocs/{0}/public"\n\
 \tServerName {0}.localhost\n\
 \tErrorLog "logs/{0}-error.log"\n\
 \tCustomLog "logs/{0}-access.log" common\n\
 </VirtualHost>\n\
-'.format(projectName))
+'.format(projectName, email))
 
 print('Generated vhost block for', projectName);
 
