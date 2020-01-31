@@ -29,7 +29,7 @@ if len(sys.argv) == 3:
 
 	if projectType == 'l' or projectType == 'laravel':
 		print('Laravel project added to hosts file')
-		hostsText = insertAfter(hostsText, r'192.168.10.10\s+[\w-]+.localhost', '\n192.168.10.10\t{0}.localhost'.format(projectName))
+		hostsText = insertAfter(hostsText, r'192.168.10.10\s+[\w-]+.local', '\n192.168.10.10\t\t{0}.local'.format(projectName))
 	elif projectType == 's' or projectType == 'silverstripe':
 		print('Silverstripe project added to hosts file')
 		hostsText = insertAfter(hostsText, r'127.0.0.1\s+[\w-]+.localhost', '\n127.0.0.1\t\t{0}.localhost'.format(projectName))
