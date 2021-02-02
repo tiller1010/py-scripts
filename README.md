@@ -3,6 +3,7 @@
 ### Requirements
 - Python 3
 - python-dotenv `pip install python-dotenv`
+- GitHub CLI
 
 ### Setup
 - Clone repository
@@ -23,3 +24,4 @@
   - Run `hosts.sh` to edit hosts file directly.
 - To generate vhost block, run `vhost.py project-name`
 - To generate .env, run `env.py project-name` in project directory
+- View Teamwork project with `tw.py`. If on the branch of an existing pull request, run `tw.py task` to view the task associated with the pull request.
