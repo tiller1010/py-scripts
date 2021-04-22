@@ -17,11 +17,14 @@
   
 ### Usage
 #### Run all for SilverStripe project
-- To generate all configurations, run `genall.sh project-name` in your project directory
+- To generate all configurations, run `genall.sh project-type project-name` in your project directory.
+- `genall.sh project-type project-name xampp` for xampp configuration. Configures for Homestead by default.
 #### Individual configs
-- To generate hosts line, run `hosts.py s project-name` for SilverStripe project, run `hosts.py l project-name` for Laravel project
-  - Script backs up hosts in py-scripts directory as "hosts.txt"
+- To generate hosts line, run `hosts.py project-name project-location`. For XAMPP project, run `hosts.py project-name x`. For Homestead project, run `hosts.py project-name h`.
+  - Script backs up hosts in py-scripts directory as "hosts.txt".
   - Run `hosts.sh` to edit hosts file directly.
 - To generate vhost block, run `vhost.py project-name`
-- To generate .env, run `env.py project-name` in project directory
+- To generate homestead blocks, run `homestead.py project-type project-name`
+- To generate .env, run `env.py project-type project-name` in project directory.
+- `env.py project-type project-name x` for xampp configuration. Configures for Homestead by default.
 - View Teamwork project with `tw.py`. If on the branch of an existing pull request, run `tw.py task` to view the task associated with the pull request.

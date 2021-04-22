@@ -1,5 +1,11 @@
 #!/bin/bash
 
-hosts.py s $1
-vhost.py $1
-env.py $1
+if [[ $3 == 'x' || $3 == 'xampp' ]]
+then
+	hosts.py $2 x
+	vhost.py $2
+else
+	hosts.py $2 h
+	homestead.py $1 $2
+fi
+env.py $1 $2

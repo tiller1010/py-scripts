@@ -1,3 +1,3 @@
-hosts.py s %1
-vhost.py %1
-env.py %1
+hosts.py $1 $2
+vhost.py $2
+env.py $1 $2
