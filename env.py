@@ -67,6 +67,13 @@ MIX_PUSHER_APP_CLUSTER=\n\
 \n\
 SCOUT_DRIVER=tntsearch'.format(projectName, databaseUser, databasePassword))
 
+	elif projectType == 'w' or projectType == 'wordpress':
+		env = open('.env', 'w')
+		env.write('DB_NAME=WP_{0}\n\
+DB_USER={1}\n\
+DB_PASSWORD={2}\n\
+DB_HOST=localhost'.format(projectName, databaseUser, databasePassword))
+
 	else:
 		env = open('.env', 'w')
 		env.write('# For a complete list of core environment variables see\n\

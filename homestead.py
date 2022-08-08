@@ -8,8 +8,9 @@ import os
 load_dotenv()
 
 homesteadPath = os.getenv("HOMESTEAD_PATH")
-silverstripePath = os.getenv("SILVERSTRIPE_SITES_PATH")
 laravelPath = os.getenv("LARAVEL_APPS_PATH")
+silverstripePath = os.getenv("SILVERSTRIPE_SITES_PATH")
+wordpressPath = os.getenv("WORDPRESS_SITES_PATH")
 pyscriptsPath = os.getenv("PYSCRIPTS_PATH")
 
 def insertAfter(filetext, regex, newText):
@@ -34,15 +35,19 @@ if len(sys.argv) == 3:
 	if projectType == 'l' or projectType == 'laravel':
 		print('Laravel project added to homestead file')
 		homesteadText = insertAfter(homesteadText, r'to: /home/vagrant/[\w-]+', '\n    - map: {0}/{1}\n      to: /home/vagrant/{1}'.format(laravelPath, projectName))
-		homesteadText = insertAfter(homesteadText, r'/home/vagrant/[\w-]+/public\s+php: .+', '\n    - map: {0}.local\n      to: /home/vagrant/{0}/public\n      php: \'7.3\''.format(projectName))
+		homesteadText = insertAfter(homesteadText, r'/home/vagrant/[\w-]+/public\s+php: .+', '\n    - map: {0}.local\n      to: /home/vagrant/{0}/public\n      php: \'8.0\''.format(projectName))
 		homesteadText = insertAfter(homesteadText, r'LV_[\w-]+', '\n    - LV_{0}'.format(projectName))
+	elif projectType == 'w' or projectType == 'wordpress':
+		homesteadText = insertAfter(homesteadText, r'to: /home/vagrant/[\w-]+', '\n    - map: {0}/{1}\n      to: /home/vagrant/{1}'.format(wordpressPath, projectName))
+		homesteadText = insertAfter(homesteadText, r'/home/vagrant/[\w-]+/public\s+php: .+', '\n    - map: {0}.local\n      to: /home/vagrant/{0}/wp\n      php: \'8.0\''.format(projectName))
+		homesteadText = insertAfter(homesteadText, r'WP_[\w-]+', '\n    - WP_{0}'.format(projectName))
 	elif projectType == 's' or projectType == 'silverstripe':
 		print('Silverstripe project added to homestead file')
 		homesteadText = insertAfter(homesteadText, r'to: /home/vagrant/[\w-]+', '\n    - map: {0}/{1}\n      to: /home/vagrant/{1}'.format(silverstripePath, projectName))
-		homesteadText = insertAfter(homesteadText, r'/home/vagrant/[\w-]+/public\s+php: .+', '\n    - map: {0}.local\n      to: /home/vagrant/{0}/public\n      php: \'7.3\''.format(projectName))
+		homesteadText = insertAfter(homesteadText, r'/home/vagrant/[\w-]+/public\s+php: .+', '\n    - map: {0}.local\n      to: /home/vagrant/{0}/public\n      php: \'8.0\''.format(projectName))
 		homesteadText = insertAfter(homesteadText, r'SS_[\w-]+', '\n    - SS_{0}'.format(projectName))
 	else:
-		print('Invalid project type, try "l" for laravel or "s" for silverstripe')
+		print('Invalid project type, try "l" for laravel, "w" for wordpress, or "s" for silverstripe')
 		sys.exit()
 
 	homestead.seek(0)
