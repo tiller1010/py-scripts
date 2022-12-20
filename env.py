@@ -91,6 +91,9 @@ SS_ENVIRONMENT_TYPE="dev"\n\
 SS_DEFAULT_ADMIN_USERNAME="admin"\n\
 SS_DEFAULT_ADMIN_PASSWORD="password"\n\
 \n\
+# The active theme\n\
+SS_THEME="{0}"\n\
+\n\
 # SilverStripe TOTP Authenticator - Update to a string related to site\n\
 SS_MFA_SECRET_KEY="silverstripe-{0}"\n\
 \n\
